@@ -121,7 +121,7 @@ def unfreeze_top_layers(model: Model, num_layers: int = 30, lr: float = 1e-5) ->
 
     model.compile(
         optimizer=tf.keras.optimizers.Adam(learning_rate=lr),
-        loss=tf.keras.losses.KeepCategoricalCrossentropy(label_smoothing=LABEL_SMOOTHING) if hasattr(tf.keras.losses, 'KeepCategoricalCrossentropy') else tf.keras.losses.CategoricalCrossentropy(label_smoothing=LABEL_SMOOTHING),
+        loss=tf.keras.losses.CategoricalCrossentropy(label_smoothing=LABEL_SMOOTHING),
         metrics=[
             "accuracy",
             tf.keras.metrics.Precision(name="precision"),

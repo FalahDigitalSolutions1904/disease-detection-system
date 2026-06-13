@@ -20,7 +20,8 @@ from datetime import datetime
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 from src.utils import (
-    IMAGE_SIZE, ANALYSIS_MODES, DEFAULT_MODE, CLINICAL_RISK_LEVELS, MODELS_DIR, PROCESSED_DATA_DIR,
+    IMAGE_SIZE, ANALYSIS_MODES, DEFAULT_MODE, CLINICAL_RISK_LEVELS,
+    MODELS_DIR, PROCESSED_DATA_DIR, RAW_DATA_DIR,
     mc_dropout_predict, uncertainty_label, determine_clinical_risk
 )
 from src.model import build_model, make_gradcam_heatmap, overlay_heatmap

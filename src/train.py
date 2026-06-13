@@ -45,6 +45,8 @@ def parse_args():
                         help="Phase 1 epochs (frozen base).")
     parser.add_argument("--epochs2", type=int, default=EPOCHS_PHASE2,
                         help="Phase 2 epochs (fine-tuning).")
+    parser.add_argument("--batch_size", type=int, default=16,
+                        help="Batch size for training data generators.")
     return parser.parse_args()
 
 
