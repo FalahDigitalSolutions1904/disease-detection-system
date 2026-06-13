@@ -157,16 +157,19 @@ def render_confidence_chart(class_names: list, probabilities: np.ndarray):
             font=dict(size=14, color="#f8fafc", family="Outfit")
         ),
         xaxis=dict(
-            title="Probability",
+            title=dict(
+                text="Probability",
+                font=dict(color="#94a3b8")
+            ),
             gridcolor="rgba(255, 255, 255, 0.05)",
             zeroline=False,
             range=[0, 1.05],
             tickformat=".0%",
-            font=dict(color="#94a3b8")
+            tickfont=dict(color="#94a3b8")
         ),
         yaxis=dict(
             gridcolor="rgba(255, 255, 255, 0.05)",
-            font=dict(color="#f8fafc")
+            tickfont=dict(color="#f8fafc")
         ),
         margin=dict(l=10, r=10, t=40, b=10),
         paper_bgcolor="rgba(0,0,0,0)",
@@ -187,12 +190,12 @@ def render_heatmap_section(original_img: np.ndarray, overlay_bgr: np.ndarray):
     with col1:
         st.markdown("<div style='text-align: center; color: #94a3b8; font-size: 0.9rem; margin-bottom: 8px;'>Original Clinical Image</div>", unsafe_allow_html=True)
         original_rgb = cv2.cvtColor(original_img, cv2.COLOR_BGR2RGB)
-        st.image(original_rgb, use_column_width=True)
+        st.image(original_rgb, use_container_width=True)
         
     with col2:
         st.markdown("<div style='text-align: center; color: #94a3b8; font-size: 0.9rem; margin-bottom: 8px;'>Grad-CAM++ Attention Heatmap</div>", unsafe_allow_html=True)
         overlay_rgb = cv2.cvtColor(overlay_bgr, cv2.COLOR_BGR2RGB)
-        st.image(overlay_rgb, use_column_width=True)
+        st.image(overlay_rgb, use_container_width=True)
         
     st.markdown("""
         <div style='font-size: 0.85rem; color: #94a3b8; margin-top: 15px; text-align: center;'>
